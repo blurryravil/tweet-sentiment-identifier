@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Tweet Sentiment Identifier</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+<!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
+  <style>
+	@import url('https://fonts.googleapis.com/css2?family=Potta+One&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap');
+	*{  
+    padding: 0;  
+    margin: 0;  
+    box-sizing: border-box;  
+  }  
+  body{  
+    height: 100vh;  
+    background-image: url('https://wallpaperaccess.com/full/1916149.jpg');  
+    font-family: 'Bebas Neue', cursive;
+  }  
+  .container{  
+  position: relative;  
+  width: 50%;  
+  min-width: 400px;  
+  min-height: 310px;
+  transform: translate(-50%,-50%);  
+  top: 20%;  
+  left: 50%;  
+  background: linear-gradient(to right,#6693a0,#03060b);  
+  padding: 20px 10px;  
+  border-radius: 50px;  
+  display: grid;  
+  justify-items: center;  
+  font-family: 'Rapa Sans', sans-serif;  
+  }  
+  .head{
+    align-self: center;
+    margin-top: 15%;
+    padding-top: 350px;
+  }
+  h1{
+    font-size: 300%;
+    color: aliceblue;
+    font-family: 'Bebas Neue', cursive;
+    padding: none;
+  }
+  h2{
+    color: #f0eaea;
+    font-size: 150%;
+    font-family: 'Abel', sans-serif;
+  }
+  h3{  
+    font-size: 30px;  
+    font-weight: 600;  
+  }  
+  h4{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #f0eaea;
+    font-size: 150%;
+  }
+  input[type="text"]{  
+    width: 300px; 
+    font-size:20px;
+    font-family: 'Abel', sans-serif;
+    font-weight: 600;  
+    padding: 10px 0;  
+    text-align: center;  
+    margin-top: 20px;  
+    border-radius: 5px;  
+    border: 2px solid #202020;  
+    color: #17473e;  
+  }  
+  button{  
+    width: 160px;  
+    padding: 10px 0;  
+    border-radius: 5px;  
+    background-color: #54fedf;  
+    color: #333;  
+    border: none;  
+    font-size: 20px;  
+    font-weight: 500;  
+    margin-bottom: 30px;
+    font-family: 'Bebas Neue', cursive;
+  } 
+  button:hover{
+	color: #f9004d;
+	transition: .4s;
+} 
+  p{  
+    font-weight: 400;  
+  }  
+</style>
+
+</head>
+
+<body>
+	<center>
+    <br><br><br>
+		<div id="head">
+      <h1>P E G A S U S</h1>
+      <img src="https://o.remove.bg/downloads/52814ac7-0a63-4751-895f-3a1bd06ecb01/_unicorn_or_horse_logo_template__2_-removebg-preview.png" width="200px" >
+    </div>
+	</center>
+  <br><br>
+	<div class="container">
+		<h2>Tweet Sentiment Identifier</h2>
+
+		<!-- Main Input For Receiving Query to our ML -->
+		<form action="{{ url_for('predict')}}"method="post">
+      <center>
+			<input type="text" name="coment" placeholder="Enter the comment" required="required">
+      <br>
+      <input type="text" name="handle" placeholder="Enter your handle" required="required"><br><br><br>
+		<button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </button></center>
+		</form>
+		<br>
+		<center><h4>{{ prediction_text }}</h4></center>
+	</div>
+  <br><br>
+ 
+
+</body>
+</html>
