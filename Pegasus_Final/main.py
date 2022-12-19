@@ -7,7 +7,7 @@ import snscrape.modules.twitter as sntwitter
 import pandas as pd
 
 app = Flask(__name__,template_folder='elements')
-model = pickle.load(open('Model.pkl','rb'))
+model = pickle.load(open('Pegasus_Final/Model.pkl','rb'))
 vectoriser = pickle.load(open('vectoriser-ngram-(1,2).pkl','rb'))
 translator = Translator()
 
