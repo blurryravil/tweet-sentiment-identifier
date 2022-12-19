@@ -56,5 +56,5 @@ def predict():
         else:
             return render_template('index.html',prediction_text="Your comment is racist/negative. You got relatively less history of negative comments.")
 
-# if __name__ == '__main__':
-app.run(debug=True)
+if __name__ == '__main__':
+    app.run()
